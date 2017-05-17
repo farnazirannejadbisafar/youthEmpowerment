@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <img src="assets/img/dandelion-1.jpg" />
+    <ion-card-content >
+      <ion-card-title>
+        Lets begin working on your project here!
+      </ion-card-title>
+      <ion-select [(ngModel)]="activeProject"><ion-option class="projectSelect" *ngFor="let project of projectList" (click)="projectSelected(project)">{{project}}</ion-option></ion-select>
+    </ion-card-content>
+    <ion-list>
+      <button ion-item (click)="goToFilteredDandelions()">
+        <ion-icon name="ios-flower" item-left></ion-icon>
+        Filtered Dandelions<br>
+        <small>Filters on your network</small>
+      </button>
+
+      <button ion-item>
+        <ion-icon name="ios-flower-outline" item-left></ion-icon>
+        Custom Dandelions<br>
+        <small>People you have selected</small>
+      </button>
+
+    </ion-list>
+  </ion-card>
+
+</ion-content>

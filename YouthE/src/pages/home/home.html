@@ -4,26 +4,57 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="createPost()">
-      <ion-icon name="create"></ion-icon>
-    </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-fab top right edge>
+    <button ion-fab color="secondary" (click)="gotoProject()"><ion-icon name="clipboard" ></ion-icon></button>
+  </ion-fab>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/pexels-photo-27411.jpg">
+      </ion-avatar>
+      <h2>Nannie Lanky</h2>
+    </ion-item>
+    <ion-item>
+      <ion-label floating><ion-note>Enter Text here...</ion-note></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="image"></ion-icon>
+          <div>Photo</div>
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <ion-select [(ngModel)]="defaultSocialMedia" class="mySocialSelect">
+          <ion-option *ngFor="let sm of social" (click)="changeSocialMedia(sm)">
+            <button ion-button clear small><ion-icon [name]=sm.logo></ion-icon>{{sm.name}}</button>
+          </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
   <ion-card>
 
     <ion-item>
       <ion-avatar item-left>
-        <img src="../../assets/img/pexels-photo-27411.jpg">
+        <img src="assets/img/pexels-photo-27411.jpg">
       </ion-avatar>
       <h2>Marty McFly</h2>
-      <button ion-button item-right clear large><ion-icon name="logo-twitter"></ion-icon></button>
+      <ion-note>
+        11h ago
+      </ion-note>
+
     </ion-item>
 
-    <img src="../../assets/img/live-concert-388160_640.jpg">
+    <img src="assets/img/live-concert-388160_640.jpg">
 
     <ion-card-content>
       <p>Come join us for a party to celebrate the 5th anniversary of YE at ICON tonight!!</p>
@@ -43,9 +74,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <ion-note>
-          11h ago
-        </ion-note>
+        <button ion-button icon-left clear small><ion-icon name="logo-twitter"></ion-icon></button>
       </ion-col>
     </ion-row>
 
@@ -54,13 +83,15 @@
 
     <ion-item>
       <ion-avatar item-left>
-        <img src="../../assets/img/pexels-photo-101584.jpeg">
+        <img src="assets/img/pexels-photo-101584.jpeg">
       </ion-avatar>
       <h2>Hansen Jo</h2>
-      <button ion-button item-right="" clear large><ion-icon name="logo-facebook"></ion-icon></button>
+        <ion-note>
+          7h ago
+        </ion-note>
     </ion-item>
 
-    <img src="../../assets/img/police-1807409_640.jpg">
+    <img src="assets/img/police-1807409_640.jpg">
 
     <ion-card-content>
       <p>We are hosting a police dialog to spread awareness amongst the neighbourhood - 25th May 2017!!</p>
@@ -86,9 +117,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <ion-note>
-          7h ago
-        </ion-note>
+        <button ion-button icon-left clear small><ion-icon name="logo-facebook"></ion-icon></button>
       </ion-col>
     </ion-row>
 
@@ -97,10 +126,12 @@
 
     <ion-item>
       <ion-avatar item-left>
-        <img src="../../assets/img/pexels-photo-253758.jpeg">
+        <img src="assets/img/pexels-photo-253758.jpeg">
       </ion-avatar>
       <h2>Moe James</h2>
-      <button ion-button item-right="" clear large><ion-icon name="logo-twitter"></ion-icon></button>
+      <ion-note>
+        6h ago
+      </ion-note>
     </ion-item>
 
     <!--<img src="../../assets/img/hands-1950980_640.jpg">-->
@@ -123,9 +154,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <ion-note>
-          6h ago
-        </ion-note>
+        <button ion-button icon-left clear small><ion-icon name="logo-twitter"></ion-icon></button>
       </ion-col>
     </ion-row>
 
