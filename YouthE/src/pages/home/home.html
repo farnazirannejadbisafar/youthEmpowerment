@@ -1,3 +1,7 @@
+<div class="my-overlay" padding [hidden]="overlayHidden">
+  <img src="assets/img/Star1.png" class="animated tada infinite" (click)="hideOverlay()"  />
+</div>
+
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -8,9 +12,10 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-fab top right edge>
-    <button ion-fab color="secondary" (click)="gotoProject()"><ion-icon name="clipboard" ></ion-icon></button>
-  </ion-fab>
+  <!--<ion-fab top right edge>-->
+    <!--<button ion-fab color="secondary" (click)="gotoProject()"><ion-icon name="clipboard" ></ion-icon></button>-->
+  <!--</ion-fab>-->
+  <!--Post Create Ion Card-->
   <ion-card>
     <ion-item>
       <ion-avatar item-left>
@@ -41,16 +46,23 @@
     </ion-row>
 
   </ion-card>
+  <!--Post Create Ion Card Ends-->
+
+  <!--TimeLine Posts Ion Cards Start-->
   <ion-card>
 
     <ion-item>
       <ion-avatar item-left>
         <img src="assets/img/pexels-photo-27411.jpg">
       </ion-avatar>
+      <button ion-button item-right icon-only secondary (click)="showStars()">
+        <ion-icon name="ios-star-outline"></ion-icon>
+      </button>
       <h2>Marty McFly</h2>
       <ion-note>
         11h ago
       </ion-note>
+
 
     </ion-item>
 
@@ -159,4 +171,5 @@
     </ion-row>
 
   </ion-card>
+  <!--Timeline Posts Ion Cards End-->
 </ion-content>

@@ -19,10 +19,10 @@ export class CreateModal {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateModal');
-  }
 
-  dismiss(){
-    this.viewCtrl.dismiss();
+    setTimeout( () => {
+      this.viewCtrl.dismiss();
+    }, 1500);
   }
 
 }
