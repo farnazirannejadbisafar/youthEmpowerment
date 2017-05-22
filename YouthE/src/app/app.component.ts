@@ -7,7 +7,6 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { Projects } from '../pages/list/list';
 import { FilteredDandelionsPage } from '../pages/filtered-dandelions/filtered-dandelions';
-import { DashboardPage } from '../pages/dashboard/dashboard';
 
 
 @Component({
@@ -28,7 +27,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Projects', component: Projects },
       { title: 'FilteredDandelionsPage' , component: FilteredDandelionsPage},
-      { title: 'DashboardPage', component: DashboardPage },
+
 
 
     ];
