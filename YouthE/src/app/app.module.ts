@@ -14,6 +14,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { DataServiceProvider } from '../providers/data-service/data-service';
+
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +49,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     StatusBar,
     SplashScreen,
     ScreenOrientation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataServiceProvider
   ]
 })
 export class AppModule {}

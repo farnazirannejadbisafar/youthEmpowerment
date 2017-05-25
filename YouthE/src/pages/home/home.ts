@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController, ModalController } from 'ionic-angular';
 import { CreateModal } from '../create-modal/create-modal';
 import { Project } from '../project/project';
-import { ToastController } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { DataServiceProvider } from '../../providers/data-service/data-service';
 
 @Component({
   selector: 'page-home',
@@ -13,9 +12,10 @@ export class HomePage {
   defaultSocialMedia: any;
   social: Array<any>;
   overlayHidden: boolean = true;
+  myData: any;
 
 
-  constructor(public navCtrl: NavController,public menuCtrl: MenuController,public modalCtrl: ModalController,public toastCtrl: ToastController,private splashScreen: SplashScreen) {
+  constructor(public navCtrl: NavController,public menuCtrl: MenuController,public modalCtrl: ModalController, data: DataServiceProvider) {
     this.menuCtrl.enable(true, 'myMenu');
     this.defaultSocialMedia = {"name":"Twitter","logo":"logo-twitter"};
     this.social = [
@@ -30,22 +30,12 @@ export class HomePage {
 
     ];
 
-  }
-
-  // showToast(){
-  //   console.log("inside showToast");
-  //   let toast = this.toastCtrl.create({
-  //     message: 'Hurraahh!!',
-  //     duration: 2000,
-  //     cssClass :'toastClass'
-  //   });
-  //   toast.present();
-  // }
+    data.getMyData()
+      .then(res => {
+        alert("MyData is "+res.msg);
+      });
 
 
-  showSplashScreen(){
-    this.splashScreen.show();
-    this.splashScreen.hide();
   }
 
   showModalScreen(){
