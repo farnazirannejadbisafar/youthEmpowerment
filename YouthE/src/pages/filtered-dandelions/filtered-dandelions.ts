@@ -16,18 +16,37 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 })
 export class FilteredDandelionsPage {
 activeProject: any;
+filters: any;
+screenLandscape: Boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private screenOrientation: ScreenOrientation) {
     this.activeProject = navParams.get('active');
+    this.filters = [1,2,3,4,5];
+    this.screenLandscape = false;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FilteredDandelionsPage');
-    this.changeOrientationLandspace();
+    this.changeOrientation();
+
   }
 
-  changeOrientationLandspace(){
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  changeOrientation(){
+
+    if(this.screenLandscape){
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    }
+    else
+    {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
+
+    this.screenLandscape = !this.screenLandscape;
   }
+
+  ionViewWillLeave(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
+
 
 }

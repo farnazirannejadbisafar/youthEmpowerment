@@ -14,15 +14,18 @@
 
 
 <ion-content padding>
-  <div>
-  <ion-slides #mySlider>
+  <ion-fab top right>
+    <button ion-fab (click)="changeOrientation()"><ion-icon name="clipboard" ></ion-icon></button>
+  </ion-fab>
 
-    <ion-slide><img src="http://placehold.it/150x150"></ion-slide>
-    <ion-slide><img src="http://placehold.it/150x150"></ion-slide>
-    <ion-slide><img src="http://placehold.it/150x150"></ion-slide>
-    <ion-slide><img src="http://placehold.it/150x150"></ion-slide>
-
-  </ion-slides>
+  <div [hidden]="!screenLandscape">
+    <ion-slides #mySlider slidesPerView="3">
+      <ion-slide *ngFor="let i of filters"><img src="assets/img/filter.jpg"><h2>Filter {{i}}</h2></ion-slide>
+    </ion-slides>
   </div>
-
+  <div [hidden]="screenLandscape">
+    <ion-card>
+      <img src="assets/img/mainFilter.jpg"/>
+    </ion-card>
+  </div>
 </ion-content>
